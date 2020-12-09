@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ekranPowitalny">
+
+    <fragment
+        android:id="@+id/listaZajec"
+        android:name="com.example.enauczyciel.view.listaZajec"
+        android:label="fragment_lista_zajec"
+        tools:layout="@layout/fragment_lista_zajec" >
+        <argument
+            android:name="numerPrzedmiotu"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_listaZajec_to_listaStudentow"
+            app:destination="@id/listaStudentow" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaStudentow"
+        android:name="com.example.enauczyciel.view.listaStudentow"
+        android:label="fragment_lista_studentow"
+        tools:layout="@layout/fragment_lista_studentow">
+        <action
+            android:id="@+id/action_listaStudentow_to_wpisywanieOcen"
+            app:destination="@id/wpisywanieOcen" />
+        <action
+            android:id="@+id/action_listaStudentow_to_listaZajec"
+            app:destination="@id/listaZajec" />
+        <action
+            android:id="@+id/action_listaStudentow_to_dodawanieStudentowZListy"
+            app:destination="@id/dodawanieStudentowZListy" />
+    </fragment>
+    <fragment
+        android:id="@+id/ekranPowitalny"
+        android:name="com.example.enauczyciel.view.ekranPowitalny"
+        android:label="fragment_ekran_powitalny"
+        tools:layout="@layout/fragment_ekran_powitalny" >
+        <action
+            android:id="@+id/action_ekranPowitalny_to_listaZajec"
+            app:destination="@id/listaZajec" />
+    </fragment>
+    <fragment
+        android:id="@+id/wpisywanieOcen"
+        android:name="com.example.enauczyciel.view.wpisywanieOcen"
+        android:label="fragment_wpisywanie_ocen"
+        tools:layout="@layout/fragment_wpisywanie_ocen" >
+        <action
+            android:id="@+id/action_wpisywanieOcen_to_listaStudentow"
+            app:destination="@id/listaStudentow" />
+    </fragment>
+    <fragment
+        android:id="@+id/dodawanieStudentowZListy"
+        android:name="com.example.enauczyciel.view.DodawanieStudentowZListy"
+        android:label="fragment_dodawanie_studentow_z_listy"
+        tools:layout="@layout/fragment_dodawanie_studentow_z_listy" >
+        <action
+            android:id="@+id/action_dodawanieStudentowZListy_to_listaStudentow"
+            app:destination="@id/listaStudentow" />
+    </fragment>
+</navigation>
